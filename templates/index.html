@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DescargadorL</title>
+    <link rel="stylesheet" href="static/estilo.css">
+</head>
+<body>
+    <img src="static/logo.jpg" alt="logo">
+    <form action="/descargar" method="post">
+        <input type="text" name="link" required placeholder="Ingresa el link del video">
+        <select name="tipo" id="">
+            <option value="video" selected>video</option>
+            <option value="audio">audio</option>
+        </select>
+        <button type="submit">Descargar</button>
+    </form>
+</body>
+</html>
