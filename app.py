@@ -10,26 +10,13 @@ def index():
 @app.route("/descargar", methods=["POST"])
 def descargar():
     url = request.form.get("url") # se obtiene del name del html
-    tipo = request.form.get("tipo", "video")
+    tipo = request.form.get("tipo")
     if not url:
-        return "URL no proporcionada", 400
+        return "URL no proporcionada", 400 # 400 es solicitud incorrrecta, bad error
     descargador = Descargador(url, tipo)
     ruta_archivo = descargador.descargar()
-    if not ruta_archivo or not os.path.exists(ruta_archivo):
-        return "Error: No se pudo generar el archivo", 500
-    @after_this_request
-    def cleanup(response):
-        try:
-            if os.path.exists(ruta_archivo):
-                os.remove(ruta_archivo)
-                logging.info(f"Archivo eliminado: {ruta_archivo}")
-        except Exception as e:
-            logging.error(f"Error al eliminar archivo: {e}")
-        return response
-    try:
-        return send_file(ruta_archivo, as_attachment = True, download_name = os.path.basename(ruta_archivo))
-    except Exception as e:
-        logging.error(f"Error al enviar archivo: {e}")
-        return f"Error al enviar el archivo: {str(e)}", 500    
+    if not ruta_archivo or not os.path.exists(ruta_archivo): # puede ser None
+        return "Error: No se pudo generar el archivo", 500 # 500 es internal several error
+    return send_file(ruta_archivo, as_attachment = True, download_name = os.path.basename(ruta_archivo))  
 if __name__ == "__main__":
     app.run(debug = True) 
