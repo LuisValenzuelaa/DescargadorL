@@ -10,7 +10,8 @@ class Descargador:
         nombre_archivo = str(uuid4()) #función de uuid, crea un id aleatorio, se pasa a string para usarlo como nombre
         formato = "140" if self.tipo == "audio" else "18"
         extension = "m4a" if self.tipo == "audio" else "mp4"
-        opciones = {"format": formato, "outtmpl": f"{nombre_archivo}.%(ext)s", "merge_output_format": extension}
+        ruta_para_guardar = os.path.join(os.path.expanduser("~"), "Downloads", f"{nombre_archivo}.%(ext)s")
+        opciones = {"format": formato, "outtmpl": ruta_para_guardar, "merge_output_format": extension}
         try:    
             with YoutubeDL(opciones) as ydl:
                 info = ydl.extract_info(self.url, download = True)
