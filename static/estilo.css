@@ -39,7 +39,7 @@ img {
 form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1rem; /* separaciones */
     width: 100%;
     max-width: 400px;
 }
