@@ -13,16 +13,19 @@ Recomendación, estar pendiente de utilizar la versiones más reciente de las de
 **Desarollo**:
 
 El directorio raíz cuenta con:
--  app.py: Archivo main, contiene el código que llama a la renderización de la plantilla html y lleva al directorio "/descargar" cuando se envía el formulario html, dentro de dicho directorio se
+- 
+  - app.py: Archivo main, contiene el código que llama a la renderización de la plantilla html y lleva al directorio "/descargar" cuando se envía el formulario html, dentro de dicho directorio se
    crea una instancia de la clase "Descargador", donde se maneja la lógica de la descarga y también la limpieza de recursos, pensando en la optimización para el despligue web.
 
 - descargador.py: Aquí se define la clase Descargador con los atributos "tipo" y "url","tipo" es referente al formato que se desea descargar, "url" es la url del video del que se desea descargar.
   La clase cuenta con un método "descargar", donde se genera un id único aleatorio para nombrar el archivo descargado y con la clase "YoutubeDL" de yt_dlp se maneja la descarga.
 
-/templates
+- /templates
+  
       - index.html: plantilla html simple.
 
-/static
+- /static
+  
       - estilo.css: aquí se encuentra todo el código css, está vinculada al index.html, se utiliza media query para el diseño responsive.
       - logo.jpg: logo a utilizar en la aplicación.
 
