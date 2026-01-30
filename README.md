@@ -56,6 +56,10 @@ gratuitos de "https://free-proxy-list.net" pero el resultado fue el mismo. Es po
 Si aún se considerara el despliegue web, se recomienda el uso de **"apt-get update && apt-get install -y ffmpeg && pip install -r requirements.txt"** para el Build Command y **"gunicorn -w 4 app:app"** 
 para el Start Command.
 
+**Video de funcionamiento**:
+
+https://drive.google.com/file/d/1oyugWFNufL55SZ9socmnDFbB7X921_p3/view?usp=sharing
+
 **Autor**:
 
 Luis Valenzuela, junio de 2025
